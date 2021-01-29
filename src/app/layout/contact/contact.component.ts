@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { InputService } from '../../services/input.service';
-import { InputControlService } from '../../services/input-control.service';
 import { InputBase } from '../../input/input-base';
-
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  providers: [InputService, InputControlService]
+  providers: [InputService]
 })
 
 export class ContactComponent implements OnInit {
@@ -19,8 +17,8 @@ export class ContactComponent implements OnInit {
   payLoad: Object;
 
   // constructs services 
-  constructor(service: InputService, private ics: InputControlService) {
-    // gets Inputs fron input.service
+  constructor(private service: InputService) {
+    // gets Inputs from input.service
     service.getInputs().subscribe((inputs: any) => {
 			this.inputs = inputs;
     });
@@ -28,8 +26,8 @@ export class ContactComponent implements OnInit {
 
   
   ngOnInit() {
-  	// Sets up form with inputs
-    this.form = this.ics.toFormGroup(this.inputs);
+  	// Sets up form with inputs with input.service
+    this.form = this.service.toFormGroup(this.inputs);
   }
   
   // converts form data to json string, rests form, and clears payLoad 

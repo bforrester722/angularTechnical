@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { InputBase }  from '../input/input-base';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 @Injectable()
 export class InputService {
 
-  // returns inputs sorted by order number to build form
+  // returns inputs sorted by order number to build form 
+  // called from contact.component.ts
   getInputs() {
 
     const inputs: InputBase<string>[] = [
@@ -46,5 +48,17 @@ export class InputService {
     ];
 
     return Observable.of(inputs.sort((a, b) => a.order - b.order));
+  }
+
+  // create grouped sets of input controls,
+  // called from contact.component.ts
+  toFormGroup(inputs: InputBase<string>[] ) {
+    const group: any = {};
+    // for each input add validators if provided
+    inputs.forEach(input => {
+       group[input.key] = input.validators ? new FormControl(input.value || '',  input.validators)
+                                          : new FormControl(input.value || '');
+    });
+    return new FormGroup(group);
   }
 }
