@@ -1,0 +1,14 @@
+div {
+	width: 100%;
+}
+
+label {
+	padding-right: 16px;
+}
+
+@media (min-width: 700px) {
+	input {
+		width: 	24px;
+		height: 24px;
+	}
+}

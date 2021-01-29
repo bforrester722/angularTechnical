@@ -1,0 +1,11 @@
+label {
+	min-width: 100px;
+}
+
+.ng-valid:not(div) {
+  border: solid 2px #007bff;
+}
+
+.error {
+	color: red;
+}

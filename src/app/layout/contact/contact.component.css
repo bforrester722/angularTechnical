@@ -1,0 +1,33 @@
+.form-wrapper {
+  height: 					calc(100vh - 184px);
+  display: 					flex;
+  justify-content: 	center;
+  align-items: 		 	center;
+}
+
+form {
+	position: relative;
+}
+
+.form-row {
+	width: 			 287px;
+	padding-top: 16px;
+}
+
+.payLoad {
+	position: absolute;
+	bottom: 	-48px;
+	left: 		0px;
+}
+
+@media (min-width: 700px) {
+  
+ form {
+    font-size: 24px;
+  }
+
+  .form-row {
+  	width: 400px;
+  }
+
+}

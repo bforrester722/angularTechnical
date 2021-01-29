@@ -25,6 +25,7 @@ import { HeaderComponent } from './shared';
     HttpClientModule,
     HttpModule,
     NgbModule.forRoot()
+
   ],
   bootstrap: [AppComponent]
 })

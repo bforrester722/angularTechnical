@@ -1,0 +1,28 @@
+
+<div class="form-wrapper">
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+
+    <div *ngFor="let input of inputs" class="form-row">
+      <!-- Could have one component that does both, but wasn't specs -->
+      <app-text-field *ngIf="input.controlType === 'textbox'" 
+      								[input]="input" 
+      								[form]="form">
+      </app-text-field>
+
+      <app-checkbox *ngIf="input.controlType === 'checkbox'" 
+      							[input]="input" 
+      							[form]="form">
+      </app-checkbox>
+
+    </div>
+
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid">Submit</button>
+    </div>
+
+ 		<div *ngIf="payLoad" class="payLoad">
+    	<strong>Form Submited</strong>
+  	</div>
+
+  </form>
+ </div>

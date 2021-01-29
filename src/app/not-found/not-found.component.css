@@ -1,0 +1,80 @@
+/*for containing hinge animation*/
+#content {
+  height:   calc(100vh - 144px);
+  overflow: hidden;
+  margin:   -20px;
+}
+
+.center-content {  
+	display:         flex;
+  justify-content: center;
+}
+
+img {
+	width:      100%;
+	max-width:  400px;
+  min-height: 256px;
+  opacity:    0;
+  transition: opacity .5s;
+}
+
+.show {
+  opacity: 1;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+#center-text {
+  text-align: center;
+}
+
+.drop {
+	animation:           hinge 1.5s 3s;
+	transform-origin:    top left;
+	animation-fill-mode: forwards;
+}
+
+@keyframes hinge {
+  0% {
+    animation-timing-function: ease-in-out;
+  }
+
+  20%,
+  60% {
+    transform: rotate3d(0, 0, 1, 80deg);
+    animation-timing-function: ease-in-out;
+  }
+
+  40%,
+  80% {
+    transform: rotate3d(0, 0, 1, 60deg);
+    animation-timing-function: ease-in-out;
+    opacity: 1;
+  }
+
+  to {
+    transform: translate3d(0, 700px, 0);
+    opacity: 0;
+  }
+}
+
+@media (min-width: 700px) {
+
+  #content {
+    height:   calc(100vh - 96px);
+  }
+  
+  img {
+    min-height: 400px;
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 24px;
+  }
+}

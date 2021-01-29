@@ -1,0 +1,14 @@
+
+<div [formGroup]="form">
+  <label [attr.for]="input.key">{{input.label}}</label>
+  <input [formControlName]="input.key" [id]="input.key" />
+  <!-- if's kinda klunky figure out better way -->
+  <div class="error" *ngIf="form.controls[input.key].touched && form.controls[input.key].hasError('required')">
+		{{input.label}} is required
+ 	</div>
+
+  <div class="error" *ngIf="form.controls[input.key].touched && form.controls[input.key].hasError('pattern')">
+   	{{input.label}} must be correct format
+  </div>
+
+</div>
