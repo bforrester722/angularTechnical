@@ -1,5 +1,18 @@
+:host {
+	width: 100%;
+}
+
 label {
-	min-width: 100px;
+	font-weight: bold;
+}
+
+#input-wrapper {
+	position: relative;
+}
+
+input {
+	width: 				 100%;
+	margin-bottom: 24px;
 }
 
 .ng-valid:not(div) {
@@ -7,5 +20,36 @@ label {
 }
 
 .error {
-	color: red;
+	position: 									absolute;
+	top: 												0px;
+	width: 											calc(100% - 2px);
+	margin-left: 								1px;
+	height: 										30px;
+	padding-left: 							8px;
+	background-color: 					black;
+	color:            					white;
+	opacity: 										0;
+ 	border-radius: 							0px 0px 4px 4px;
+	transition: 								transform .25s, opacity .2s;
+	transition-timing-function: ease-out;
+	pointer-events: 						none;
+	z-index: 										-1;
+}
+
+.show-error {
+	opacity: 	 1;
+	transform: translateY(30px);
+}
+
+@media (min-width: 700px) {
+
+  input {
+  	margin-bottom: 32px;
+  }
+  
+ .show-error {
+    height: 	 42px;
+  	transform: translateY(40px);
+  }
+
 }

@@ -4,6 +4,7 @@ div {
 
 label {
 	padding-right: 16px;
+	font-weight:   bold;
 }
 
 @media (min-width: 700px) {

@@ -12,6 +12,16 @@ import { InputBase } from '../../../input/input-base';
 export class TextFieldComponent {
   @Input() input: InputBase<string>;
   @Input() form: FormGroup;
+
+  // computes show-error class
+  computeClass() {
+  	if (!this.input) { return; }
+  	const {touched, errors} = this.form.controls[this.input.key];
+  	if (touched && errors) {
+  		return 'show-error';
+  	}
+  }
+
 }
 
 

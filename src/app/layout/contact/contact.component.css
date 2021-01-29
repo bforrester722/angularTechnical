@@ -1,5 +1,5 @@
 .form-wrapper {
-  height: 					calc(100vh - 184px);
+  height: 					calc(100vh - 224px);
   display: 					flex;
   justify-content: 	center;
   align-items: 		 	center;
@@ -12,6 +12,11 @@ form {
 .form-row {
 	width: 			 287px;
 	padding-top: 16px;
+}
+
+button:not([disabled]) {
+  background-color: #007bff;
+  color: white;
 }
 
 .payLoad {
